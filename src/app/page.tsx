@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Characters } from "@/components/sections/Characters";
 import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
 
       <main>
         <Hero />
+        <Characters />
       </main>
     </>
   );
