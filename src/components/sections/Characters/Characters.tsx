@@ -1,5 +1,5 @@
 import { getCharacters } from "@/services/characters";
-import { CharacterCard } from "./components/CharacterCard";
+import { CharacterCatalog } from "./components/CharacterCatalog";
 import styles from "./Characters.module.scss";
 
 export async function Characters() {
@@ -18,11 +18,7 @@ export async function Characters() {
           </p>
         </div>
 
-        <div className={styles.grid}>
-          {characters.map((character) => (
-            <CharacterCard key={character.id} character={character} />
-          ))}
-        </div>
+        <CharacterCatalog characters={characters} />
       </div>
     </section>
   );
