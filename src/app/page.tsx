@@ -1,3 +1,8 @@
 export default function Home() {
-  return <h1>Hello World</h1>;
+  return (
+    <main>
+      <h1>Welcome to Hogwarts</h1>
+      <p>Discover the magical world of Harry Potter.</p>
+    </main>
+  );
 }
