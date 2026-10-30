@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
   return (
@@ -6,8 +7,7 @@ export default function Home() {
       <Header />
 
       <main>
-        <h1>Welcome to Hogwarts</h1>
-        <p>Discover the magical world of Harry Potter.</p>
+        <Hero />
       </main>
     </>
   );

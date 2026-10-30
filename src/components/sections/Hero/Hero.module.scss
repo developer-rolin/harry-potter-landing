@@ -1,0 +1,115 @@
+
+.hero {
+  position: relative;
+  min-height: clamp(36rem, 85svh, 48rem);
+
+  background-image: url("/images/hero/hero-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: inherit;
+
+  background: linear-gradient(
+    90deg,
+    rgb(13 17 23 / 95%) 0%,
+    rgb(13 17 23 / 80%) 40%,
+    rgb(13 17 23 / 35%) 100%
+  );
+}
+
+.content {
+  width: min(calc(100% - 2rem), 1200px);
+  margin-inline: auto;
+  padding-block: 5rem;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  max-width: 750px;
+  margin-bottom: 1.5rem;
+
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.8;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-background);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+
+  &:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 38rem;
+    background-position: 60% center;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      90deg,
+      rgb(13 17 23 / 92%) 0%,
+      rgb(13 17 23 / 75%) 100%
+    );
+  }
+
+  .content {
+    padding-block: 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+}
