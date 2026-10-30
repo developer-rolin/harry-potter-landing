@@ -8,6 +8,14 @@ import styles from "./CharacterCatalog.module.scss";
 
 const HOUSES = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"] as const;
 
+const STATUSES = [
+  { value: "all", label: "All statuses" },
+  { value: "alive", label: "Alive" },
+  { value: "deceased", label: "Deceased" },
+] as const;
+
+type StatusFilter = (typeof STATUSES)[number]["value"];
+
 type HouseFilter = "all" | (typeof HOUSES)[number];
 
 interface CharacterCatalogProps {
@@ -17,6 +25,7 @@ interface CharacterCatalogProps {
 export function CharacterCatalog({ characters }: CharacterCatalogProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedHouse, setSelectedHouse] = useState<HouseFilter>("all");
+  const [selectedStatus, setSelectedStatus] = useState<StatusFilter>("all");
 
   const filteredCharacters = characters.filter((character) => {
     const matchesName = character.name
@@ -26,7 +35,12 @@ export function CharacterCatalog({ characters }: CharacterCatalogProps) {
     const matchesHouse =
       selectedHouse === "all" || character.house === selectedHouse;
 
-    return matchesName && matchesHouse;
+    const matchesStatus =
+      selectedStatus === "all" ||
+      (selectedStatus === "alive" && character.alive) ||
+      (selectedStatus === "deceased" && !character.alive);
+
+    return matchesName && matchesHouse && matchesStatus;
   });
 
   return (
@@ -72,6 +86,26 @@ export function CharacterCatalog({ characters }: CharacterCatalogProps) {
               onClick={() => setSelectedHouse(house)}
             >
               {house}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.filters}>
+        <span className={styles.filterLabel}>Filter by status</span>
+
+        <div className={styles.filterOptions}>
+          {STATUSES.map((status) => (
+            <button
+              key={status.value}
+              type="button"
+              className={`${styles.filterButton} ${
+                selectedStatus === status.value ? styles.activeFilter : ""
+              }`}
+              aria-pressed={selectedStatus === status.value}
+              onClick={() => setSelectedStatus(status.value)}
+            >
+              {status.label}
             </button>
           ))}
         </div>
