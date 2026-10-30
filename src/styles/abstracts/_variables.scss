@@ -1,0 +1,48 @@
+
+:root {
+  // Colors — Background
+  --color-background: #0d1117;
+  --color-surface: #171d26;
+  --color-surface-elevated: #202936;
+
+  // Colors — Brand
+  --color-primary: #c6a15b;
+  --color-primary-hover: #d8b978;
+  --color-accent: #7a263a;
+
+  // Colors — Text
+  --color-text-primary: #f3efe6;
+  --color-text-muted: #a7a49d;
+
+  // Colors — Borders
+  --color-border: #303a47;
+
+  // Typography
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: var(--font-geist-sans), Arial, sans-serif;
+
+  // Font sizes
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+
+  // Spacing
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+
+  // Borders and effects
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-card: 0 8px 24px rgb(0 0 0 / 25%);
+}
