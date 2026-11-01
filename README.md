@@ -111,7 +111,7 @@ SCSS Modules provide component-level style isolation, while global design tokens
 
 ### Prerequisites
 
-- Node.js 20.20.2
+- Node.js 26.x
 - pnpm 9.15.9
 
 ### Installation

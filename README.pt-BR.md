@@ -111,7 +111,7 @@ Os SCSS Modules isolam os estilos de cada componente, enquanto os tokens globais
 
 ### Pré-requisitos
 
-- Node.js 20.20.2
+- Node.js 26.x
 - pnpm 9.15.9
 
 ### Instalação

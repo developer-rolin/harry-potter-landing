@@ -111,7 +111,7 @@ Los SCSS Modules aíslan los estilos de cada componente, mientras que los tokens
 
 ### Requisitos previos
 
-- Node.js 20.20.2
+- Node.js 26.x
 - pnpm 9.15.9
 
 ### Instalación
