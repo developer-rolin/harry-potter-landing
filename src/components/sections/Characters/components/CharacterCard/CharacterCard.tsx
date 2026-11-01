@@ -1,5 +1,6 @@
 import type { Character } from "@/types/character";
 import styles from "./CharacterCard.module.scss";
+import Image from "next/image";
 
 interface CharacterCardProps {
   character: Character;
@@ -12,13 +13,15 @@ export function CharacterCard({ character }: CharacterCardProps) {
     <article className={styles.card}>
       <div className={styles.imageContainer}>
         {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={name} className={styles.image} />
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+            className={styles.image}
+          />
         ) : (
-          <div
-            className={styles.imageFallback}
-            aria-label={`No image available for ${name}`}
-          >
+          <div className={styles.imageFallback} aria-hidden="true">
             ✦
           </div>
         )}
