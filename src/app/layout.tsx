@@ -8,6 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://harry-potter-landing-rho.vercel.app"),
   title: "The Wizarding Archive | Harry Potter Characters",
   description:
     "Explore the witches, wizards and magical creatures of the Harry Potter universe. Discover character profiles, Hogwarts houses, Patronuses and more.",
