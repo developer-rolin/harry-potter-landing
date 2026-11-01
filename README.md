@@ -21,6 +21,7 @@ The Wizarding Archive is a responsive character catalog built with Next.js and T
 - **Responsive layout:** Adapted for desktop, tablet, and mobile devices.
 - **Loading and error states:** Provide feedback while data is loading or when a request fails.
 - **SEO and social sharing:** Metadata and an Open Graph image for improved search and sharing previews.
+- **Loading and Error States:** Dedicated loading UI with Next.js `loading.tsx` and error handling with `error.tsx`, providing feedback during asynchronous operations and a recovery mechanism when rendering fails.
 
 ## Tech Stack
 

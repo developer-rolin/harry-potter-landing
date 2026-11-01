@@ -21,6 +21,7 @@ O The Wizarding Archive é um catálogo responsivo de personagens desenvolvido c
 - **Layout responsivo:** interface adaptada para desktop, tablet e dispositivos móveis.
 - **Estados de carregamento e erro:** feedback durante o carregamento dos dados e em caso de falha na requisição.
 - **SEO e compartilhamento:** metadados e imagem Open Graph para melhorar a apresentação em mecanismos de busca e plataformas sociais.
+- **Estados de Carregamento e Erro:** Interfaces dedicadas com `loading.tsx` e `error.tsx` do Next.js, oferecendo feedback durante operações assíncronas e mecanismos de recuperação em caso de falhas na renderização.
 
 ## Tecnologias utilizadas
 
