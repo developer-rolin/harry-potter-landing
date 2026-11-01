@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import styles from "./Hero.module.scss";
 
 export function Hero() {
@@ -19,10 +19,10 @@ export function Hero() {
             wizarding world.
           </p>
 
-          <Link href="#characters" className={styles.cta}>
+          <a href="#characters" className={styles.cta}>
             Explore characters
             <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

@@ -14,9 +14,9 @@ export function Header() {
         </Link>
 
         <nav className={styles.navigation} aria-label="Main navigation">
-          <Link href="#characters" className={styles.navLink}>
+          <a href="#characters" className={styles.navLink}>
             Characters
-          </Link>
+          </a>
         </nav>
       </div>
     </header>
