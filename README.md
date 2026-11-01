@@ -1,5 +1,7 @@
 # The Wizarding Archive
 
+[English](README.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
+
 Explore the witches, wizards, and magical creatures of the Harry Potter universe.
 
 The Wizarding Archive is a responsive character catalog built with Next.js and TypeScript. It consumes a public REST API to display character information, allowing users to explore and filter the magical world through a clean and accessible interface.
