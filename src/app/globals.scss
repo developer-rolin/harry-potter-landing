@@ -1,3 +1,39 @@
 @use "../styles/abstracts/variables";
 @use "../styles/base/reset";
-@use "../styles/base/typography"
+@use "../styles/base/typography";
+
+.loading {
+  display: flex;
+  min-height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  color: var(--color-text-muted);
+  text-align: center;
+
+  &__symbol {
+    color: var(--color-primary);
+    font-size: 3rem;
+    animation: loading-pulse 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes loading-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading__symbol {
+    animation: none;
+  }
+}
