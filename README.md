@@ -8,7 +8,7 @@ The Wizarding Archive is a responsive character catalog built with Next.js and T
 
 ## Live Demo
 
-Coming soon.
+[The Wizarding Archive](https://harry-potter-landing-rho.vercel.app/)
 
 ## Features
 
