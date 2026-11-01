@@ -1,36 +1,187 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Wizarding Archive
+
+Explore the witches, wizards, and magical creatures of the Harry Potter universe.
+
+The Wizarding Archive is a responsive character catalog built with Next.js and TypeScript. It consumes a public REST API to display character information, allowing users to explore and filter the magical world through a clean and accessible interface.
+
+## Live Demo
+
+Coming soon.
+
+## Features
+
+- **Character catalog:** Browse characters from the Harry Potter universe.
+- **Character profiles:** View character images, names, dates of birth, Hogwarts houses, Patronuses, actors, and status.
+- **Search:** Find characters by name.
+- **House filters:** Filter characters by Gryffindor, Slytherin, Ravenclaw, or Hufflepuff.
+- **Status filters:** Filter characters by alive or deceased status.
+- **Combined filtering:** Apply multiple filters simultaneously.
+- **Responsive layout:** Adapted for desktop, tablet, and mobile devices.
+- **Loading and error states:** Provide feedback while data is loading or when a request fails.
+- **SEO and social sharing:** Metadata and an Open Graph image for improved search and sharing previews.
+
+## Tech Stack
+
+| Technology  | Purpose                                      |
+| ----------- | -------------------------------------------- |
+| Next.js 16  | React framework and application architecture |
+| React 19    | Component-based user interface               |
+| TypeScript  | Static typing                                |
+| SCSS / Sass | Styling and modular stylesheets              |
+| REST API    | Character data source                        |
+| Fetch API   | HTTP requests                                |
+| pnpm        | Package management                           |
+| ESLint      | Code linting                                 |
+| Prettier    | Code formatting                              |
+
+## Architecture
+
+The project uses the Next.js App Router and organizes code by responsibility.
+
+```text
+src/
+├── app/
+│   ├── error.tsx
+│   ├── loading.tsx
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.scss
+│
+├── components/
+│   ├── layout/
+│   │   └── Header/
+│   │
+│   └── sections/
+│       ├── Hero/
+│       └── Characters/
+│           └── components/
+│               ├── CharacterCard/
+│               ├── CharacterCatalog/
+│               └── CharacterFilters/
+│
+├── services/
+│   └── characters/
+│       └── characters.service.ts
+│
+├── styles/
+│   ├── abstracts/
+│   └── base/
+│
+└── types/
+    └── character.ts
+```
+
+### Key technical decisions
+
+**Server and Client Components**
+
+The character data is fetched in a Server Component. Interactive functionality, such as search and filtering, is handled by a Client Component.
+
+This keeps the initial data request on the server while allowing users to interact with the catalog without making additional API requests for every filter change.
+
+**Service layer**
+
+API communication is isolated in `src/services/characters/characters.service.ts`, keeping data-fetching logic separate from presentation components.
+
+**Data caching**
+
+The native Fetch API uses Next.js revalidation with a one-hour interval:
+
+```typescript
+fetch(CHARACTERS_API_URL, {
+  next: {
+    revalidate: 3600,
+  },
+});
+```
+
+This reduces unnecessary requests while allowing character data to be refreshed periodically.
+
+**Image optimization**
+
+The application uses Next.js `Image` to optimize remote character images. Missing images are handled with a fallback interface.
+
+**Styling**
+
+SCSS Modules provide component-level style isolation, while global design tokens define colors, typography, spacing, and other shared values.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20.20.2
+- pnpm 9.15.9
+
+### Installation
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <YOUR_REPOSITORY_URL>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd harry-potter-landing
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+### Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command             | Description                               |
+| ------------------- | ----------------------------------------- |
+| `pnpm dev`          | Starts the development server             |
+| `pnpm build`        | Creates a production build                |
+| `pnpm start`        | Starts the production server              |
+| `pnpm lint`         | Runs ESLint                               |
+| `pnpm format`       | Formats project files with Prettier       |
+| `pnpm format:check` | Checks formatting without modifying files |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Reference
+
+Character data is provided by the [Harry Potter API](https://hp-api.onrender.com/).
+
+**Endpoint:**
+
+```text
+GET https://hp-api.onrender.com/api/characters
+```
+
+The application retrieves character information and uses the following fields:
+
+- `id`
+- `name`
+- `image`
+- `dateOfBirth`
+- `house`
+- `patronus`
+- `actor`
+- `alive`
+
+Some API fields may be unavailable for certain characters. The interface handles missing information with fallback values.
+
+## Future Improvements
+
+- Add character sorting options.
+- Improve filtering with additional character attributes.
+- Add automated tests.
+- Enhance character details with dedicated profile pages.
+- Add further performance and accessibility improvements.
+
+## License
+
+This project was created as a technical challenge and for learning purposes.
