@@ -50,8 +50,10 @@ export function CharacterFilters({
         />
       </div>
 
-      <div className={styles.filters}>
-        <span className={styles.filterLabel}>Filter by house</span>
+      <section className={styles.filters} aria-labelledby="house-filter-label">
+        <h3 id="house-filter-label" className={styles.filterLabel}>
+          Filter by house
+        </h3>
 
         <div className={styles.filterOptions}>
           <button
@@ -79,10 +81,12 @@ export function CharacterFilters({
             </button>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className={styles.filters}>
-        <span className={styles.filterLabel}>Filter by status</span>
+      <section className={styles.filters} aria-labelledby="status-filter-label">
+        <h3 id="status-filter-label" className={styles.filterLabel}>
+          Filter by status
+        </h3>
 
         <div className={styles.filterOptions}>
           {STATUSES.map((status) => (
@@ -99,7 +103,7 @@ export function CharacterFilters({
             </button>
           ))}
         </div>
-      </div>
+      </section>
 
       {hasActiveFilters && (
         <button
