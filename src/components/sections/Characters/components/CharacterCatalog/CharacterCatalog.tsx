@@ -60,8 +60,10 @@ export function CharacterCatalog({ characters }: CharacterCatalogProps) {
         onClearFilters={clearFilters}
       />
 
-      <p className={styles.resultsCount}>
-        {filteredCharacters.length} characters found
+      <p className={styles.resultsCount} aria-live="polite">
+        {filteredCharacters.length === characters.length
+          ? `Showing all ${characters.length} characters`
+          : `Showing ${filteredCharacters.length} of ${characters.length} characters`}
       </p>
 
       {filteredCharacters.length > 0 ? (
