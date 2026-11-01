@@ -19,7 +19,6 @@ The Wizarding Archive es un catálogo responsivo de personajes desarrollado con 
 - **Filtro por estado:** filtra personajes vivos o fallecidos.
 - **Filtros combinados:** aplica varios filtros simultáneamente.
 - **Diseño responsivo:** interfaz adaptada a escritorio, tabletas y dispositivos móviles.
-- **Estados de carga y error:** muestra información durante la carga de los datos y cuando ocurre un error en la solicitud.
 - **SEO y compartir en redes sociales:** metadatos e imagen Open Graph para mejorar la presentación en buscadores y plataformas sociales.
 - **Estados de Carga y Error:** Interfaces específicas mediante `loading.tsx` y `error.tsx` de Next.js, proporcionando información durante operaciones asíncronas y mecanismos de recuperación ante fallos de renderizado.
 
@@ -120,7 +119,7 @@ Los SCSS Modules aíslan los estilos de cada componente, mientras que los tokens
 Clona el repositorio:
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/developer-rolin/harry-potter-landing.git
 ```
 
 Accede al directorio del proyecto:
