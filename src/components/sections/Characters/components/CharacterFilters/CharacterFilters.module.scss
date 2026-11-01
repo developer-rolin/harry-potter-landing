@@ -83,3 +83,24 @@
     color: var(--color-background);
   }
 }
+
+.clearButton {
+  align-self: flex-start;
+  padding: var(--spacing-2) 0;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  transition: color 200ms ease;
+
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+}

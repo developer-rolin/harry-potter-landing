@@ -20,6 +20,11 @@ export function CharacterCatalog({ characters }: CharacterCatalogProps) {
   const [selectedHouse, setSelectedHouse] = useState<HouseFilter>("all");
   const [selectedStatus, setSelectedStatus] = useState<StatusFilter>("all");
 
+  const hasActiveFilters =
+    searchTerm.trim() !== "" ||
+    selectedHouse !== "all" ||
+    selectedStatus !== "all";
+
   const filteredCharacters = characters.filter((character) => {
     const matchesName = character.name
       .toLowerCase()
@@ -36,15 +41,23 @@ export function CharacterCatalog({ characters }: CharacterCatalogProps) {
     return matchesName && matchesHouse && matchesStatus;
   });
 
+  function clearFilters() {
+    setSearchTerm("");
+    setSelectedHouse("all");
+    setSelectedStatus("all");
+  }
+
   return (
     <div className={styles.catalog}>
       <CharacterFilters
         searchTerm={searchTerm}
         selectedHouse={selectedHouse}
         selectedStatus={selectedStatus}
+        hasActiveFilters={hasActiveFilters}
         onSearchChange={setSearchTerm}
         onHouseChange={setSelectedHouse}
         onStatusChange={setSelectedStatus}
+        onClearFilters={clearFilters}
       />
 
       <p className={styles.resultsCount}>

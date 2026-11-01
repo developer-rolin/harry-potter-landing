@@ -16,18 +16,22 @@ interface CharacterFiltersProps {
   searchTerm: string;
   selectedHouse: HouseFilter;
   selectedStatus: StatusFilter;
+  hasActiveFilters: boolean;
   onSearchChange: (value: string) => void;
   onHouseChange: (house: HouseFilter) => void;
   onStatusChange: (status: StatusFilter) => void;
+  onClearFilters: () => void;
 }
 
 export function CharacterFilters({
   searchTerm,
   selectedHouse,
   selectedStatus,
+  hasActiveFilters,
   onSearchChange,
   onHouseChange,
   onStatusChange,
+  onClearFilters,
 }: CharacterFiltersProps) {
   return (
     <>
@@ -96,6 +100,16 @@ export function CharacterFilters({
           ))}
         </div>
       </div>
+
+      {hasActiveFilters && (
+        <button
+          type="button"
+          className={styles.clearButton}
+          onClick={onClearFilters}
+        >
+          Clear filters
+        </button>
+      )}
     </>
   );
 }
